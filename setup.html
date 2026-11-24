@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Free Sample · Pulpit to Post</title>
+<meta name="description" content="Tell us about your church and we'll make a free, private sample of a week of posts from your most recent sermon.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/config.js"></script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="./"><i>P</i>Pulpit to Post</a>
+  <a class="btn ghost small" href="./">Home</a>
+</div></header>
+
+<main><section><div class="wrap narrow">
+  <h1>Get your free sample</h1>
+  <p class="lede" style="margin-top:14px">Tell us about your church. Within 2 days we'll email you a private page with a week of posts made from your most recent sermon on YouTube: quote graphics, captions, a recap and video clips. Nothing gets posted, and no payment info is needed. About 5 minutes.</p>
+  <p class="note">Already subscribed? Fill this out to set up your weekly posts, or again anytime with the same email to change your settings.</p>
+
+  <form id="setup" action="https://api.web3forms.com/submit" method="POST" style="margin-top:24px">
+    <input type="hidden" name="access_key" id="access_key" value="">
+    <input type="hidden" name="subject" value="New Pulpit to Post signup">
+    <input type="hidden" name="from_name" value="Pulpit to Post website">
+    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+    <fieldset class="group"><legend>1. Your church</legend>
+      <label for="church">Church name</label>
+      <input type="text" id="church" name="church_name" required>
+      <label for="name">Your name</label>
+      <input type="text" id="name" name="your_name" required>
+      <label for="role">Your role</label>
+      <select id="role" name="role"><option>Pastor</option><option>Church staff</option><option>Volunteer</option><option>Other</option></select>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+      <label for="phone">Phone <small>(optional)</small></label>
+      <input type="tel" id="phone" name="phone">
+      <label for="site">Church website <small>(optional)</small></label>
+      <input type="url" id="site" name="church_website" placeholder="https://">
+    </fieldset>
+
+    <fieldset class="group"><legend>2. Your sermons</legend>
+      <label for="yt">Your church's YouTube channel</label>
+      <input type="url" id="yt" name="youtube_channel" placeholder="https://www.youtube.com/@yourchurch" required>
+      <p class="hint">A link to the channel or to any of your sermon videos works.</p>
+      <label>How do your sermons go on YouTube?</label>
+      <label class="radio"><input type="radio" name="how_posted" value="Livestream of the service" required> We livestream the service</label>
+      <label class="radio"><input type="radio" name="how_posted" value="Sermon-only video upload"> We upload the sermon as its own video</label>
+      <label class="radio"><input type="radio" name="how_posted" value="Both"> Both</label>
+      <label for="names">Sermon titles we can recognize <small>(optional)</small></label>
+      <input type="text" id="names" name="sermon_title_pattern" placeholder="e.g. titles start with the date, like 'Nov 15 | ...'">
+      <p class="hint">Helps us skip Bible studies, classes and other videos on your channel.</p>
+    </fieldset>
+
+    <fieldset class="group"><legend>3. Who preaches</legend>
+      <label for="pastor">Your pastor's name, as it should appear on posts</label>
+      <input type="text" id="pastor" name="pastor_credit" placeholder="e.g. Pastor David Smith" required>
+      <label for="others">Others who preach sometimes <small>(optional)</small></label>
+      <input type="text" id="others" name="other_preachers">
+      <p class="hint">On weeks with a guest, we credit whoever actually preached. If it isn't clear, posts credit your church.</p>
+    </fieldset>
+
+    <fieldset class="group"><legend>4. Your look and details</legend>
+      <label for="logo">Link to your logo <small>(optional)</small></label>
+      <input type="url" id="logo" name="logo_link" placeholder="Leave blank and we'll use the one on your website">
+      <label for="colors">Your church colors <small>(optional)</small></label>
+      <input type="text" id="colors" name="colors" placeholder="e.g. orange, green and brown, or hex codes">
+      <label for="times">Service times</label>
+      <input type="text" id="times" name="service_times" placeholder="e.g. Sundays at 10am and 11:30am" required>
+      <label for="addr">Church address</label>
+      <input type="text" id="addr" name="address" required>
+    </fieldset>
+
+    <fieldset class="group"><legend>5. Posting</legend>
+      <label for="ig">Instagram account <small>(optional)</small></label>
+      <input type="text" id="ig" name="instagram" placeholder="@yourchurch">
+      <label for="fb">Facebook page <small>(optional)</small></label>
+      <input type="url" id="fb" name="facebook_page" placeholder="https://facebook.com/yourchurch">
+      <label>Once you subscribe, how should posts go out?</label>
+      <label class="radio"><input type="radio" name="approval" value="Approve first" checked> Email me each week's posts to approve first</label>
+      <label class="radio"><input type="radio" name="approval" value="Post automatically"> Post them automatically</label>
+      <p class="hint">You can change this anytime.</p>
+      <label for="avoid">Anything we should avoid? <small>(optional)</small></label>
+      <textarea id="avoid" name="avoid" placeholder="Topics, words or kinds of posts you don't want"></textarea>
+      <label for="more">Anything else we should know? <small>(optional)</small></label>
+      <textarea id="more" name="anything_else"></textarea>
+    </fieldset>
+
+    <div id="notice" class="alert" hidden></div>
+    <button class="btn primary" type="submit" id="send">Send me my free sample</button>
+  </form>
+</div></section></main>
+
+<footer><div class="wrap">
+  <span>© 2026 Pulpit to Post · <a href="mailto:joelspulpittopost@gmail.com">joelspulpittopost@gmail.com</a></span>
+  <span><a data-stripe="portal" href="#">Manage subscription</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></span>
+</div></footer>
+
+<script>
+// Web3Forms access key (safe to be public). Paste it here once the form is set up.
+var WEB3FORMS_KEY = "";
+document.getElementById("access_key").value = WEB3FORMS_KEY;
+document.getElementById("setup").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var note = document.getElementById("notice"), btn = document.getElementById("send");
+  if (!WEB3FORMS_KEY) {
+    note.hidden = false;
+    note.textContent = "Our form isn't connected yet. Please email joelspulpittopost@gmail.com and we'll set you up.";
+    return;
+  }
+  btn.disabled = true; btn.textContent = "Sending...";
+  fetch(this.action, { method: "POST", body: new FormData(this), headers: { Accept: "application/json" } })
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      if (d.success) { window.location.href = "thanks.html"; }
+      else { throw new Error(d.message || "Something went wrong"); }
+    })
+    .catch(function (err) {
+      note.hidden = false;
+      note.textContent = "That didn't go through (" + err.message + "). Please try again, or email joelspulpittopost@gmail.com.";
+      btn.disabled = false; btn.textContent = "Send me my free sample";
+    });
+});
+</script>
+</body>
+</html>
