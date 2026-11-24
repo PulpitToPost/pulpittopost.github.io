@@ -18,13 +18,14 @@
 
 <main><section><div class="wrap narrow">
   <h1>Get your free sample</h1>
-  <p class="lede" style="margin-top:14px">Tell us about your church. Within 2 days we'll email you a private page with a week of posts made from your most recent sermon on YouTube: quote graphics, captions, a recap and video clips. Nothing gets posted, and no payment info is needed. About 5 minutes.</p>
+  <p class="lede" style="margin-top:14px">Tell us about your church. Usually within a few hours, we'll email you a private page with a week of posts made from your most recent sermon on YouTube: quote graphics, captions, a recap and video clips. Nothing gets posted, and no payment info is needed. About 5 minutes.</p>
   <p class="note">Already subscribed? Fill this out to set up your weekly posts, or again anytime with the same email to change your settings.</p>
 
   <form id="setup" action="https://api.web3forms.com/submit" method="POST" style="margin-top:24px">
     <input type="hidden" name="access_key" id="access_key" value="">
     <input type="hidden" name="subject" value="New Pulpit to Post signup">
     <input type="hidden" name="from_name" value="Pulpit to Post website">
+    <input type="hidden" name="ptp_data" id="ptp_data" value="">
     <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 
     <fieldset class="group"><legend>1. Your church</legend>
@@ -36,6 +37,7 @@
       <select id="role" name="role"><option>Pastor</option><option>Church staff</option><option>Volunteer</option><option>Other</option></select>
       <label for="email">Email</label>
       <input type="email" id="email" name="email" required>
+      <p class="hint">We'll send your free sample here, and later your weekly posts to approve if you choose that.</p>
       <label for="phone">Phone <small>(optional)</small></label>
       <input type="tel" id="phone" name="phone">
       <label for="site">Church website <small>(optional)</small></label>
@@ -111,6 +113,14 @@ document.getElementById("setup").addEventListener("submit", function (e) {
     note.textContent = "Our form isn't connected yet. Please email joelspulpittopost@gmail.com and we'll set you up.";
     return;
   }
+  // Machine-readable copy of the answers, so the automation can set the church up by itself.
+  var data = {};
+  new FormData(this).forEach(function (v, k) {
+    if (["access_key", "botcheck", "ptp_data", "subject", "from_name"].indexOf(k) === -1) data[k] = v;
+  });
+  data.submitted_at = new Date().toISOString();
+  document.getElementById("ptp_data").value =
+    "PTP1:" + btoa(unescape(encodeURIComponent(JSON.stringify(data)))) + ":END";
   btn.disabled = true; btn.textContent = "Sending...";
   fetch(this.action, { method: "POST", body: new FormData(this), headers: { Accept: "application/json" } })
     .then(function (r) { return r.json(); })
