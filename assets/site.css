@@ -121,3 +121,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-betw
   .stack{height:300px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* legal pages */
+.legal h2{font-size:22px;margin:28px 0 8px}
+.legal p,.legal li{color:var(--text)}
+.legal ul{padding-left:20px;margin:0 0 12px}
+.legal li{margin:6px 0}
