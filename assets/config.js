@@ -1,9 +1,8 @@
-// Links filled in once Stripe is set up. Empty means "not live yet":
-// subscribe buttons then send people to the free sample form instead.
+// Stripe payment links and the customer portal login.
 window.PTP = {
-  stripeMonthly: "",   // Stripe payment link for $79/month
-  stripeYearly: "",    // Stripe payment link for $790/year
-  stripePortal: "",    // Stripe customer portal login link
+  stripeMonthly: "https://buy.stripe.com/dRmaEY4ja7M2fSs7b10Ba00",   // Stripe payment link for $79/month
+  stripeYearly: "https://buy.stripe.com/28EcN64jac2icGgfHx0Ba01",    // Stripe payment link for $790/year
+  stripePortal: "https://billing.stripe.com/p/login/dRmaEY4ja7M2fSs7b10Ba00",    // Stripe customer portal login link
 };
 
 document.addEventListener("DOMContentLoaded", function () {
