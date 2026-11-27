@@ -95,6 +95,7 @@
     </fieldset>
 
     <div id="notice" class="alert" hidden></div>
+    <div id="err" class="alert" hidden></div>
     <button class="btn primary" type="submit" id="send">Send me my free sample</button>
   </form>
 </div></section></main>
@@ -107,10 +108,20 @@
 <script>
 // Web3Forms access key (safe to be public). Paste it here once the form is set up.
 var WEB3FORMS_KEY = "6563e71a-27cf-41e9-9d63-e68df2bc3af5";
+// Owner-only outreach mode (setup.html?outreach=1): the sample is emailed to Pulpit to Post
+// for review instead of to the email typed below.
+if (/[?&]outreach=1\b/.test(location.search)) {
+  var f = document.getElementById("setup"), h = document.createElement("input");
+  h.type = "hidden"; h.name = "outreach"; h.value = "1"; f.appendChild(h);
+  var n = document.getElementById("notice");
+  n.hidden = false;
+  n.textContent = "Outreach mode: the sample goes to joelspulpittopost@gmail.com for review. Nothing is sent to the email below. Put the church's real contact email, since it's used if they subscribe.";
+  f.insertBefore(n, f.firstChild);
+}
 document.getElementById("access_key").value = WEB3FORMS_KEY;
 document.getElementById("setup").addEventListener("submit", function (e) {
   e.preventDefault();
-  var note = document.getElementById("notice"), btn = document.getElementById("send");
+  var note = document.getElementById("err"), btn = document.getElementById("send");
   if (!WEB3FORMS_KEY) {
     note.hidden = false;
     note.textContent = "Our form isn't connected yet. Please email joelspulpittopost@gmail.com and we'll set you up.";
