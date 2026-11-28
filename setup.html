@@ -19,7 +19,7 @@
 
 <main><section><div class="wrap narrow">
   <h1>Get your free sample</h1>
-  <p class="lede" style="margin-top:14px">Four quick questions, about a minute. Usually within a few hours, we'll email you a private page with a week of posts made from your most recent sermon on YouTube: quote graphics, captions, a recap and video clips. Nothing gets posted, and no payment info is needed.</p>
+  <p class="lede" style="margin-top:14px">Five quick questions, about a minute. Usually within a few hours, we'll email you a private page with a week of posts made from your most recent sermon on YouTube: quote graphics, captions, a recap and video clips. Nothing gets posted, and no payment info is needed.</p>
   <p class="note">Already subscribed? Fill this out with the email you subscribed with to set up your weekly posts. You can fill it out again anytime with that same email to change your settings.</p>
 
   <form id="setup" action="https://api.web3forms.com/submit" method="POST" style="margin-top:24px">
@@ -40,6 +40,10 @@
       <label for="yt">Your church's YouTube channel</label>
       <input type="url" id="yt" name="youtube_channel" placeholder="https://www.youtube.com/@yourchurch" required>
       <p class="hint">A link to the channel or to any of your sermon videos works.</p>
+      <label>If you subscribe, how should posts go out?</label>
+      <label class="radio"><input type="radio" name="approval" value="Approve first" required> Email me each week's posts to approve first</label>
+      <label class="radio"><input type="radio" name="approval" value="Post automatically"> Post them automatically</label>
+      <p class="hint">Your free sample is never posted either way. You can change this anytime.</p>
     </fieldset>
 
     <details class="more">
@@ -88,9 +92,6 @@
         <label class="radio"><input type="checkbox" name="platform_instagram" value="Yes" checked> Instagram</label>
         <label class="radio"><input type="checkbox" name="platform_facebook" value="Yes" checked> Facebook</label>
         <p class="hint">You'll confirm this when you connect your accounts on Facebook's own sign-in screen. You never share a password.</p>
-        <label>How should posts go out?</label>
-        <label class="radio"><input type="radio" name="approval" value="Approve first" checked> Email me each week's posts to approve first</label>
-        <label class="radio"><input type="radio" name="approval" value="Post automatically"> Post them automatically</label>
         <label for="avoid">Anything we should avoid?</label>
         <textarea id="avoid" name="avoid" placeholder="Topics, words or kinds of posts you don't want"></textarea>
         <label for="more">Anything else we should know?</label>
