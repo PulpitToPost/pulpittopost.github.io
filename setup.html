@@ -19,7 +19,7 @@
 
 <main><section><div class="wrap narrow">
   <h1>Get your free sample</h1>
-  <p class="lede" style="margin-top:14px">Tell us about your church. Usually within a few hours, we'll email you a private page with a week of posts made from your most recent sermon on YouTube: quote graphics, captions, a recap and video clips. Nothing gets posted, and no payment info is needed. About 5 minutes.</p>
+  <p class="lede" style="margin-top:14px">Four quick questions, about a minute. Usually within a few hours, we'll email you a private page with a week of posts made from your most recent sermon on YouTube: quote graphics, captions, a recap and video clips. Nothing gets posted, and no payment info is needed.</p>
   <p class="note">Already subscribed? Fill this out with the email you subscribed with to set up your weekly posts. You can fill it out again anytime with that same email to change your settings.</p>
 
   <form id="setup" action="https://api.web3forms.com/submit" method="POST" style="margin-top:24px">
@@ -29,70 +29,74 @@
     <input type="hidden" name="ptp_data" id="ptp_data" value="">
     <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 
-    <fieldset class="group"><legend>1. Your church</legend>
+    <fieldset class="group"><legend>Your church</legend>
       <label for="church">Church name</label>
       <input type="text" id="church" name="church_name" required>
       <label for="name">Your name</label>
       <input type="text" id="name" name="your_name" required>
-      <label for="role">Your role</label>
-      <select id="role" name="role"><option>Pastor</option><option>Church staff</option><option>Volunteer</option><option>Other</option></select>
       <label for="email">Email</label>
       <input type="email" id="email" name="email" required>
-      <p class="hint">We'll send your free sample here, and later your weekly posts to approve if you choose that. <b>If you subscribe, use this same email at checkout</b> so we can match your account.</p>
-      <label for="phone">Phone <small>(optional)</small></label>
-      <input type="tel" id="phone" name="phone">
-      <label for="site">Church website <small>(optional)</small></label>
-      <input type="url" id="site" name="church_website" placeholder="https://">
-    </fieldset>
-
-    <fieldset class="group"><legend>2. Your sermons</legend>
+      <p class="hint">We'll send your free sample here. <b>If you subscribe, use this same email at checkout</b> so we can match your account.</p>
       <label for="yt">Your church's YouTube channel</label>
       <input type="url" id="yt" name="youtube_channel" placeholder="https://www.youtube.com/@yourchurch" required>
       <p class="hint">A link to the channel or to any of your sermon videos works.</p>
-      <label>How do your sermons go on YouTube?</label>
-      <label class="radio"><input type="radio" name="how_posted" value="Livestream of the service" required> We livestream the service</label>
-      <label class="radio"><input type="radio" name="how_posted" value="Sermon-only video upload"> We upload the sermon as its own video</label>
-      <label class="radio"><input type="radio" name="how_posted" value="Both"> Both</label>
-      <label for="names">Sermon titles we can recognize <small>(optional)</small></label>
-      <input type="text" id="names" name="sermon_title_pattern" placeholder="e.g. they start with the date">
-      <p class="hint">Helps us skip Bible studies, classes and other videos on your channel.</p>
     </fieldset>
 
-    <fieldset class="group"><legend>3. Who preaches</legend>
-      <label for="pastor">Your pastor's name, as it should appear on posts</label>
-      <input type="text" id="pastor" name="pastor_credit" placeholder="e.g. Pastor David Smith" required>
-      <label for="others">Others who preach sometimes <small>(optional)</small></label>
-      <input type="text" id="others" name="other_preachers">
-      <p class="hint">On weeks with a guest, we credit whoever actually preached. If it isn't clear, posts credit your church.</p>
-    </fieldset>
+    <details class="more">
+      <summary>Optional: more details <small>(helps us get it exactly right)</small></summary>
+      <p class="hint" style="margin-top:12px">Skip any of these. We'll fill in your pastor, service times and address from your sermon videos and website, and you can change anything later.</p>
 
-    <fieldset class="group"><legend>4. Your look and details</legend>
-      <label for="logo">Link to your logo <small>(optional)</small></label>
-      <input type="url" id="logo" name="logo_link" placeholder="https://">
-      <p class="hint">Leave blank and we'll use your YouTube channel's profile picture.</p>
-      <label for="colors">Your church colors <small>(optional)</small></label>
-      <input type="text" id="colors" name="colors" placeholder="e.g. navy and gold">
-      <p class="hint">Color names or codes like #1F2A44. Leave blank and we'll match your logo.</p>
-      <label for="times">Service times</label>
-      <input type="text" id="times" name="service_times" placeholder="e.g. Sundays at 10am" required>
-      <label for="addr">Church address</label>
-      <input type="text" id="addr" name="address" required>
-    </fieldset>
+      <fieldset class="group"><legend>About you</legend>
+        <label for="role">Your role</label>
+        <select id="role" name="role"><option>Pastor</option><option>Church staff</option><option>Volunteer</option><option>Other</option></select>
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone">
+        <label for="site">Church website</label>
+        <input type="url" id="site" name="church_website" placeholder="https://">
+      </fieldset>
 
-    <fieldset class="group"><legend>5. Posting</legend>
-      <label>Where do you want posts to go?</label>
-      <label class="radio"><input type="checkbox" name="platform_instagram" value="Yes" checked> Instagram</label>
-      <label class="radio"><input type="checkbox" name="platform_facebook" value="Yes" checked> Facebook</label>
-      <p class="hint">Pick one or both. After you subscribe, you'll connect these accounts yourself on Facebook's own sign-in screen. You never share a password.</p>
-      <label>Once you subscribe, how should posts go out?</label>
-      <label class="radio"><input type="radio" name="approval" value="Approve first" checked> Email me each week's posts to approve first</label>
-      <label class="radio"><input type="radio" name="approval" value="Post automatically"> Post them automatically</label>
-      <p class="hint">You can change this anytime.</p>
-      <label for="avoid">Anything we should avoid? <small>(optional)</small></label>
-      <textarea id="avoid" name="avoid" placeholder="Topics, words or kinds of posts you don't want"></textarea>
-      <label for="more">Anything else we should know? <small>(optional)</small></label>
-      <textarea id="more" name="anything_else"></textarea>
-    </fieldset>
+      <fieldset class="group"><legend>Your sermons</legend>
+        <label>How do your sermons go on YouTube?</label>
+        <label class="radio"><input type="radio" name="how_posted" value="Livestream of the service"> We livestream the service</label>
+        <label class="radio"><input type="radio" name="how_posted" value="Sermon-only video upload"> We upload the sermon as its own video</label>
+        <label class="radio"><input type="radio" name="how_posted" value="Both"> Both</label>
+        <label for="names">Sermon titles we can recognize</label>
+        <input type="text" id="names" name="sermon_title_pattern" placeholder="e.g. they start with the date">
+        <p class="hint">Helps us skip Bible studies, classes and other videos on your channel.</p>
+        <label for="pastor">Your pastor's name, as it should appear on posts</label>
+        <input type="text" id="pastor" name="pastor_credit" placeholder="e.g. Pastor David Smith">
+        <label for="others">Others who preach sometimes</label>
+        <input type="text" id="others" name="other_preachers">
+        <p class="hint">On weeks with a guest, we credit whoever actually preached. If it isn't clear, posts credit your church.</p>
+      </fieldset>
+
+      <fieldset class="group"><legend>Your look and details</legend>
+        <label for="logo">Link to your logo</label>
+        <input type="url" id="logo" name="logo_link" placeholder="https://">
+        <p class="hint">Leave blank and we'll use your YouTube channel's profile picture.</p>
+        <label for="colors">Your church colors</label>
+        <input type="text" id="colors" name="colors" placeholder="e.g. navy and gold">
+        <p class="hint">Color names or codes like #1F2A44. Leave blank and we'll match your logo.</p>
+        <label for="times">Service times</label>
+        <input type="text" id="times" name="service_times" placeholder="e.g. Sundays at 10am">
+        <label for="addr">Church address</label>
+        <input type="text" id="addr" name="address">
+      </fieldset>
+
+      <fieldset class="group"><legend>Posting (after you subscribe)</legend>
+        <label>Where do you want posts to go?</label>
+        <label class="radio"><input type="checkbox" name="platform_instagram" value="Yes" checked> Instagram</label>
+        <label class="radio"><input type="checkbox" name="platform_facebook" value="Yes" checked> Facebook</label>
+        <p class="hint">You'll confirm this when you connect your accounts on Facebook's own sign-in screen. You never share a password.</p>
+        <label>How should posts go out?</label>
+        <label class="radio"><input type="radio" name="approval" value="Approve first" checked> Email me each week's posts to approve first</label>
+        <label class="radio"><input type="radio" name="approval" value="Post automatically"> Post them automatically</label>
+        <label for="avoid">Anything we should avoid?</label>
+        <textarea id="avoid" name="avoid" placeholder="Topics, words or kinds of posts you don't want"></textarea>
+        <label for="more">Anything else we should know?</label>
+        <textarea id="more" name="anything_else"></textarea>
+      </fieldset>
+    </details>
 
     <div id="notice" class="alert" hidden></div>
     <div id="err" class="alert" hidden></div>

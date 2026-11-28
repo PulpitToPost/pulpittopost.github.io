@@ -127,3 +127,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-betw
 .legal p,.legal li{color:var(--text)}
 .legal ul{padding-left:20px;margin:0 0 12px}
 .legal li{margin:6px 0}
+
+/* optional section of the sample form */
+form details.more{border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:18px;background:var(--paper)}
+form details.more[open]{padding-bottom:4px}
+form details.more summary{font:600 18px var(--display);color:var(--ink)}
+form details.more summary small{font:400 14px var(--body, inherit);color:var(--muted)}
+form details.more .group{border:0;padding:12px 0 8px;margin:0;border-top:1px solid var(--line);border-radius:0;background:none}
+form details.more p{margin-left:0}
